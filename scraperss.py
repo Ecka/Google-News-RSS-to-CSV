@@ -2,7 +2,6 @@ import feedparser
 import urllib
 import tldextract
 import csv
-from bs4 import BeautifulSoup
 from newspaper import Article
 
 class ArticleData:
