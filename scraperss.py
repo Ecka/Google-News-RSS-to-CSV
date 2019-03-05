@@ -53,7 +53,7 @@ query = input('Comma delimited search terms: ')
 query_list = query.split(',')
 
 for query in query_list:
-    filename = query + '.csv'
+    filename = query.replace(' ', '_') + '.csv'
     # Converts search term text into something compatible with a URL
     query = urllib.parse.quote_plus(query)
     feed_url = 'https://news.google.com/rss/search?q={' + query + '}'
