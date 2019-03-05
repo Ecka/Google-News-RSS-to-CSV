@@ -42,10 +42,10 @@ def extract_data(link):
             return ArticleData(publication, title, arttext, pubyear, pubmonth, pubday, url)
         except:
             print('oop parse fail')
-            return ArticleData(0,0,0,0,0,0,0)
+            return ArticleData(0,0,0,0,0,0,link)
     except:
         print('oop download fail')
-        return ArticleData(0,0,0,0,0,0,0)
+        return ArticleData(0,0,0,0,0,0,link)
 
 
 # Get a list of search terms
@@ -68,6 +68,6 @@ for query in query_list:
     # Write object hierarchy as a csv file
     with open(filename, 'w+', ) as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Publication', 'Title', 'Text', 'Year', 'Month', 'Day', 'URL'])
+        writer.writerow(['publication', 'title', 'arttext', 'pubyear', 'pubmonth', 'pubday', 'url'])
         for article in full_data:
             writer.writerow([article.publication, article.title, article.arttext, article.pubyear, article.pubmonth, article.pubday, article.url])
